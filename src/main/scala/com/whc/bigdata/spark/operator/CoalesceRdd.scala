@@ -17,6 +17,7 @@ object CoalesceRdd {
 
     //缩减分区：也可以理解为合并分区，可以查看coalescerdd的输出output。
     //这个过程没有打乱数据重组，故没有shuffle过程。
+    //弊端：假如原来有10个分区，现在缩减成2个，可能会出现数据分配不均发生倾斜的情况
     val coalescerdd: RDD[Int] = listrdd.coalesce(3)
 
     println("缩减分区后："+coalescerdd.partitions.size)

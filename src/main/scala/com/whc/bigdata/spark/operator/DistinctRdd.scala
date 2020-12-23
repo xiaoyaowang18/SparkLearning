@@ -15,7 +15,7 @@ object DistinctRdd {
 
     //使用distinct算子对数据去重，因为去重后会导致数据减少，所以可以改变默认的分区数量。默认的话是8个分区
     //val distinctrdd: RDD[Int] = listrdd.distinct()
-    //会将数据打乱重组，从而产生shuffle操作，运行较慢。
+    //会将数据打乱重组，从而产生shuffle操作，运行较慢。在history server中可以看到job中有shuffle read和write，会产生io
     val distinctrdd: RDD[Int] = listrdd.distinct(2)
 
     //distinctrdd.collect().foreach(println)
