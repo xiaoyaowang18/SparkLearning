@@ -1,3 +1,6 @@
+/in/
+/out/
+/output/
 /target/
 /.idea/
 /.settings/
@@ -5,6 +8,3 @@
 /.classpath
 /.project
 *.iml
-/in/
-/out/
-/output/
