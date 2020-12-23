@@ -1,4 +1,4 @@
-package com.whc.bigdata.spark
+package com.whc.bigdata.spark.example
 
 import org.apache.spark.{SparkConf, SparkContext}
 
