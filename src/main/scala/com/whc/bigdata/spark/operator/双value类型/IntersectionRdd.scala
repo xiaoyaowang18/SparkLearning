@@ -5,7 +5,7 @@ import org.apache.spark.rdd.RDD
 
 object IntersectionRdd {
   def main(args: Array[String]): Unit = {
-    //创建spark配置对象
+    //创建spark配置对象呀
     val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
 
     //创建上下文对象
