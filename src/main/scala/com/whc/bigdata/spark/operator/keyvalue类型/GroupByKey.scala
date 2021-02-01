@@ -8,7 +8,7 @@ import org.apache.spark.rdd.RDD
 
 object GroupByKey {
   def main(args: Array[String]): Unit = {
-    val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Partitionby")
+    val config: SparkConf = new SparkConf().setMaster("local[*]").setAppName("GroupByKey")
 
     val sc = new SparkContext(config)
 

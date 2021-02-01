@@ -5,7 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 //创建两个pairRDD，并将key相同的数据聚合到一个元组。
 object Join {
   def main(args: Array[String]): Unit = {
-    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("ReduceByKey")
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Join")
 
     val sc = new SparkContext(sparkConf)
 

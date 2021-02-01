@@ -5,7 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 //创建两个pairRDD，并将key相同的数据聚合到一个迭代器。
 object CoGroup {
   def main(args: Array[String]): Unit = {
-    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("AggregateByKey")
+    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("CoGroup")
 
     val sc = new SparkContext(conf)
 

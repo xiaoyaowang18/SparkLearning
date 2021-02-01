@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object SortByKey {
   def main(args: Array[String]): Unit = {
-    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("ReduceByKey")
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("SortByKey")
 
     val sc = new SparkContext(sparkConf)
 

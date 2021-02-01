@@ -4,7 +4,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object MapValues {
   def main(args: Array[String]): Unit = {
-    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("ReduceByKey")
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("MapValues")
 
     val sc = new SparkContext(sparkConf)
 
