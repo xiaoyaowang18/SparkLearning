@@ -55,7 +55,7 @@ object MysqlRDD {
       Class.forName(driver)
       val conn: Connection = DriverManager.getConnection(url, userName, passWd)
       datas.foreach {
-        case (usename, age) => {
+        case (username, age) => {
           val sql = "insert into rddtable(username,age) values (?,?)"
           val statement: PreparedStatement = conn.prepareStatement(sql)
           statement.setString(1, username)
