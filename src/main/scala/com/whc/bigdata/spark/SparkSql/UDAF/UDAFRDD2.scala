@@ -18,6 +18,7 @@ object UDAFRDD2 {
     //将聚合函数转换为查询列
     val avgCol: TypedColumn[UserBean, Double] = udaf.toColumn.name("avgAge")
 
+    import spark.implicits._
     val userDS: Dataset[UserBean] = df.as[UserBean]
 
     userDS.select(avgCol).show()
@@ -37,16 +38,16 @@ case class AvgBuffer(var sum: BigInt, var count: Int)
 //申明用户自定义聚合函数（强类型）
 //1.继承Aggregator,设定泛型
 //2.实现方法
-class MyAvgClassFunction extends Aggregator[UserBean,AvgBuffer,Double] {
+class MyAvgClassFunction extends Aggregator[UserBean, AvgBuffer, Double] {
   //初始化
   override def zero: AvgBuffer = {
-    AvgBuffer(0,0)
+    AvgBuffer(0, 0)
   }
 
   //聚合数据
   override def reduce(b: AvgBuffer, a: UserBean): AvgBuffer = {
-    b.sum = b.sum +a.sum
-    b.count = b.count+1
+    b.sum = b.sum + a.age
+    b.count = b.count + 1
     b
   }
 
@@ -59,7 +60,7 @@ class MyAvgClassFunction extends Aggregator[UserBean,AvgBuffer,Double] {
 
   //完成计算
   override def finish(reduction: AvgBuffer): Double = {
-    reduction.sum.toDouble/reduction.count
+    reduction.sum.toDouble / reduction.count
   }
 
   //如果是自定义的类型

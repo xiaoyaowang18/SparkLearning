@@ -19,12 +19,12 @@ object DataFrame {
     val spark: SparkSession = SparkSession.builder().config(conf).getOrCreate()
 
 
-    val df: DataFrame = spark.read.json("D:\\ideaproject\\SparkLearning\\src\\main\\scala\\com\\whc\\bigdata\\resources\\user.json")
+    val df: DataFrame = spark.read.json("D:\\code\\SparkLearning\\src\\main\\scala\\com\\whc\\bigdata\\resources\\user.json")
 
     //将dataframe转换为一张表
-    df.createTempView("user")
+    df.createGlobalTempView("user")
     //采用sql的语法访问数据
-    val sparkdf: DataFrame = spark.sql("select * from user")
+    val sparkdf: DataFrame = spark.sql("select * from global_temp.user")
 
     sparkdf.show()
     spark.stop()
