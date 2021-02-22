@@ -13,7 +13,7 @@ object StreamWordCount {
     val streamingContext = new StreamingContext(conf,Seconds(3))
 
     //3.通过监控端口创建Dstream,读进来的数据为一行行
-    val lineStreams: ReceiverInputDStream[String] = streamingContext.socketTextStream("bigdata1.whc.com",9998)
+    val lineStreams: ReceiverInputDStream[String] = streamingContext.socketTextStream("bigdata1.whc.com",8888)
 
     //4.将每一行数据做切分，形成一个个单词
     val wordStreams: DStream[String] = lineStreams.flatMap(_.split(" "))
