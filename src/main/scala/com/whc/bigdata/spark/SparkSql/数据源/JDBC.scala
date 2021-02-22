@@ -31,7 +31,7 @@ object JDBC {
       .jdbc("jdbc:mysql://hadoop102:3306/rdd", "rddtable", connectionProperties)
 
     //将数据写入mysql方式一
-    jdbcDF.write.
+    jdbcDF.write
       .format("jdbc")
       .option("url", "jdbc:mysql://hadoop102:3306/rdd")
       .option("dbtable", "dftable")
